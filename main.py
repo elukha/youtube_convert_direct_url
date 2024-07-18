@@ -34,18 +34,18 @@ def link_convert(youtube_URL):
     """
 
 
-youtube_url = st.text_input("Youtube URL")
-button = st.button("convert", type="primary")
+parms = st.query_params.to_dict()
+youtube_url = parms["URL"]
 
 
-if button:
-    result = str()
-    g = link_convert(youtube_url)
-    r = g.split()
-    
-    for i in r:
-        if ".m3u8" in i:
-            result = i
-            break
-    print(result)
-    st.write(result)
+
+result = str()
+g = link_convert(youtube_url)
+r = g.split()
+
+for i in r:
+    if ".m3u8" in i:
+        result = i
+        break
+print(result)
+st.write(result)
